@@ -1,6 +1,6 @@
-# Dataflow
+# Dataflow Module
 
-Translate data from one encoded format to another.
+Translate data from one serialized format to another.
 
 ## Getting Started
 
@@ -9,10 +9,9 @@ Recommend starting out with Dataflow documentation locally using the User Guide 
 ## Learning & References
 
 - User Guide
-- Demo Module [At github](https://github.com/shadowhand/demo)
 - API Browser
 - Unit Tests
 
-## Version 0.10
+## Version 0.1.0
 
 This is the initial release version of [Dataflow](https://github.com/michealmorgan/dataflow).
