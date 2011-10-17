@@ -30,7 +30,11 @@ class Kohana_Dataflow
 	 * @access	protected
 	 * @var		array
 	 */
-	protected $_config = array();
+	protected $_config = array
+	(
+		'input'		=> array(),
+		'output'	=> array()
+	);
 
 	/**
 	 * Dataflow Input
@@ -56,11 +60,7 @@ class Kohana_Dataflow
 	 */
 	public function __construct(array $config = array())
 	{
-		$this->_config = $config + array
-		(
-			'input'		=> array(),
-			'output'	=> array()
-		);
+		$this->_config = Arr::merge($config, $this->_config);
 	}
 	
 	/**
@@ -80,7 +80,10 @@ class Kohana_Dataflow
 			$this->_input = Dataflow_Input::factory($this->_config['input'])->set($input);
 		}
 		
+		// Reset output due to new input
 		$this->_output = NULL;
+		
+		return $this;
 	}
 	
 	/**

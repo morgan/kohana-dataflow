@@ -118,7 +118,7 @@ abstract class Kohana_Dataflow_Output
 	 */
 	public function as_array()
 	{
-		return $this->get();
+		return $this->_data;
 	}
 	
 	/**
