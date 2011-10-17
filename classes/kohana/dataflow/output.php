@@ -111,6 +111,17 @@ abstract class Kohana_Dataflow_Output
 	}
 	
 	/**
+	 * Alternative method call for get
+	 * 
+	 * @access	public
+	 * @return	array
+	 */
+	public function as_array()
+	{
+		return $this->_get();
+	}
+	
+	/**
 	 * Magic method for converting object to string
 	 * 
 	 * @access	public
