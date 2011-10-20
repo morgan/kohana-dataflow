@@ -4,6 +4,7 @@
  * 
  * Supports PHP 5.2.3 or greater.
  * 
+ * @todo		Make error handling across drivers more consistent
  * @package		Dataflow
  * @category	Base
  * @author		Micheal Morgan <micheal@morgan.ly>
@@ -25,6 +26,34 @@ class Kohana_Dataflow
 	}
 	
 	/**
+	 * Map Content-Type header to driver
+	 * 
+	 * @static
+	 * @access	public
+	 * @return	mixed	string|FALSE
+	 */
+	public static function content_driver($header)
+	{
+		if (isset(Dataflow::$content_driver[$header]))
+			return Dataflow::$content_driver[$header];
+			
+		return FALSE;
+	}
+	
+	/**
+	 * Header Content-Type to driver mapping
+	 * 
+	 * @static
+	 * @access	public
+	 * @var		array
+	 */
+	public static $content_driver = array
+	(
+		'application/json'	=> 'json',
+		'application/php'	=> 'php'
+	);
+	
+	/**
 	 * Configuration
 	 * 
 	 * @access	protected
@@ -32,15 +61,15 @@ class Kohana_Dataflow
 	 */
 	protected $_config = array
 	(
-		'input'		=> array(),
-		'output'	=> array()
+		'decode'	=> array(),
+		'encode'	=> array()
 	);
 
 	/**
-	 * Dataflow Input
+	 * Decoded input as array
 	 * 
 	 * @access	protected
-	 * @var		Dataflow_Input|array
+	 * @var		array
 	 */
 	protected $_input = array();
 	
@@ -48,7 +77,7 @@ class Kohana_Dataflow
 	 * Dataflow Output
 	 * 
 	 * @access	protected
-	 * @var		Dataflow_Output|NULL
+	 * @var		Dataflow_Encode|NULL
 	 */
 	protected $_output;
 	
@@ -77,7 +106,9 @@ class Kohana_Dataflow
 		}
 		else
 		{
-			$this->_input = Dataflow_Input::factory($this->_config['input'])->set($input);
+			$this->_input = Dataflow_Decode::factory($this->_config['decode'])
+				->set($input)
+				->get();
 		}
 		
 		// Reset output due to new input
@@ -90,18 +121,28 @@ class Kohana_Dataflow
 	 * Get output
 	 * 
 	 * @access	public
-	 * @return	Dataflow_Output
+	 * @param	bool	Whether to return encoded string or Dataflow_Encode
+	 * @return	mixed	string|Dataflow_Encode
 	 */
-	public function get()
+	public function get($encoded = TRUE)
 	{
 		if ($this->_output === NULL)
 		{
-			$input = ($this->_input instanceof Dataflow_Input) ? $this->_input->get() : $this->_input;
-		
-			$this->_output = Dataflow_Output::factory($this->_config['output'])->set($input);
+			$this->_output = Dataflow_Encode::factory($this->_config['encode'])->set($this->_input);
 		}
-		
-		return $this->_output;
+			
+		return ($encoded) ? $this->_output->get() : $this->_output; 
+	}
+	
+	/**
+	 * Return array
+	 * 
+	 * @access	public
+	 * @return	array
+	 */
+	public function as_array()
+	{
+		return $this->_input;
 	}
 	
 	/**
@@ -112,18 +153,20 @@ class Kohana_Dataflow
 	 */
 	public function __toString()
 	{
-		return (string) $this->get();
+		return (string) $this->get(FALSE);
 	}	
 	
 	/**
 	 * Render output
 	 * 
 	 * @access	public
+	 * @param	bool
+	 * @param	mixed	Request|NULL
 	 * @return	$this
 	 */
-	public function render()
+	public function render($headers = TRUE, Request $request = NULL)
 	{
-		$this->get()->render();
+		$this->get(FALSE)->render($headers, $request);
 		
 		return $this;
 	}
