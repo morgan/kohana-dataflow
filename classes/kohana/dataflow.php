@@ -26,34 +26,6 @@ class Kohana_Dataflow
 	}
 	
 	/**
-	 * Map Content-Type header to driver
-	 * 
-	 * @static
-	 * @access	public
-	 * @return	mixed	string|FALSE
-	 */
-	public static function content_driver($header)
-	{
-		if (isset(Dataflow::$content_driver[$header]))
-			return Dataflow::$content_driver[$header];
-			
-		return FALSE;
-	}
-	
-	/**
-	 * Header Content-Type to driver mapping
-	 * 
-	 * @static
-	 * @access	public
-	 * @var		array
-	 */
-	public static $content_driver = array
-	(
-		'application/json'	=> 'json',
-		'application/php'	=> 'php'
-	);
-	
-	/**
 	 * Configuration
 	 * 
 	 * @access	protected

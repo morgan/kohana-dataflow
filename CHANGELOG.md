@@ -4,7 +4,6 @@
 - Renamed `Dataflow_Input` to `Dataflow_Decode` and `Dataflow_Output` to `Dataflow_Encode`
 - Encode and decode abstracts more consistent including expected variable types
 - `Dataflow_Encode::render` now accepts `Request` for modifying Content-Type header
-- `Dataflow_Encode::__toString` no longer modifying `Response` headers
 - Added `Dataflow::as_array` to return input array
 - Refactored unit tests into an abstract for consistent sampling across drivers
 

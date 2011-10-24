@@ -63,7 +63,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
       		
       		$this->_attributes( & $data[$key]);
 
-      		$data = & $data[$key];
+			$data =& $data[$key];
 		}		
 		
         $this->_process($data);

@@ -6,7 +6,7 @@ usage or incorporating into a REST API.
 	// Example of converting XML to YAML
 	echo Dataflow::factory()->set($xml);
 	
-	// Convert any support format to a standardized array
+	// Convert any supported format to a standardized array
 	Dataflow::factory()->set($input)->as_array();
 
 ## Getting Started

@@ -136,6 +136,8 @@ abstract class Kohana_Dataflow_Encode
 	 */
 	public function __toString()
 	{
+		$this->_headers();
+		
 		return $this->get();
 	}
 	

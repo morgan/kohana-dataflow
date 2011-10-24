@@ -37,7 +37,7 @@ class Kohana_Dataflow_Decode_Xml extends Dataflow_Decode
 	 */
 	protected function _decode($data)
 	{
-        $this->_parser = xml_parser_create();
+		$this->_parser = xml_parser_create();
         
 		xml_set_object($this->_parser, $this);
         xml_set_element_handler($this->_parser, '_open', '_close');
