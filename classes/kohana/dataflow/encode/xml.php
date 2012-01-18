@@ -20,7 +20,8 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 	(
 		':content'		=> ':content',
 		':attributes'	=> ':attributes',
-		':xml'			=> ':xml'
+		':xml'			=> ':xml',
+		'pluralize'		=> TRUE
 	);
 
 	/**
@@ -127,10 +128,19 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
     {
     	if (is_array($element) && isset($element[0]))
     	{
+    		// If "pluralize" enabled, wrap children using plural index and set children to use 
+    		// singular index
+    		if ($this->_config['pluralize'])
+    		{
+    			$this->_writer->startElement($index);
+    			
+    			$index = Inflector::singular($index);
+    		}
+    		
     		foreach ($element as $key => $name)
     		{
     			$this->_writer->startElement($index);
-
+    				
 				$this->_attributes( & $name);
 				$this->_content( & $name);					
 				
@@ -141,6 +151,11 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 				
     			$this->_writer->endElement();
     		}
+    		
+    	    if ($this->_config['pluralize'])
+    		{
+    			$this->_writer->endElement();
+    		}    		
     		
     		return TRUE;
     	}

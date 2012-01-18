@@ -1,3 +1,10 @@
+# 0.3.0
+
+- Added "pluralize" option for XML encode. This enables children indexes to be wrapped in a plural key 
+while children dynamically use singular keys. Example `array('values' => array('a', 'b'))` to 
+`<values><value>a</value><value>b</value></values>`. This keeps other serialized formats free of 
+the singular keys when using more than one driver for output.
+
 # 0.2.0 - 10/19/2011
 
 - Added support for XML, YAML and serialized PHP
