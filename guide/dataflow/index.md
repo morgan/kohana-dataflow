@@ -5,6 +5,5 @@ allows for the decoding of data into a standardized array. [Click here to get st
 
 # Additional Resources
 
-- Demo Module [At github](https://github.com/shadowhand/demo)
 - API Browser
 - Unit Tests

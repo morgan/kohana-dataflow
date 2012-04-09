@@ -21,7 +21,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 		':content'		=> ':content',
 		':attributes'	=> ':attributes',
 		':xml'			=> ':xml',
-		'pluralize'		=> TRUE
+		'pluralize'		=> FALSE
 	);
 
 	/**

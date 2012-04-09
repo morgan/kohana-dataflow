@@ -41,7 +41,7 @@ abstract class Kohana_DataflowTest extends Unittest_TestCase
     			(
     				'samples' => array
     				(
-    					'sample' => array('string', 1)
+    					'sample' => array('string(value)', 1)
     				)
     			)
     		),
