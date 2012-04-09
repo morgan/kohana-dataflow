@@ -11,7 +11,8 @@ usage or incorporating into a REST API.
 
 ## Getting Started
 
-Recommend starting out with Dataflow documentation locally using the User Guide module.
+Recommend starting out with Dataflow documentation using the User Guide module or available 
+online at http://dev.morgan.ly/kohana/v3.2/guide/dataflow/.
 
 ## Learning & References
 
