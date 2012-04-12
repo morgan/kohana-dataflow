@@ -67,7 +67,7 @@ abstract class Kohana_Dataflow_Decode
 	 */
 	public function __construct(array $config)
 	{
-		$this->_config = Arr::merge($config, $this->_config);
+		$this->_config = Arr::merge($this->_config, $config);
 		
 		$this->_type = $config['driver'];
 		
