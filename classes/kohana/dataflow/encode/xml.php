@@ -54,15 +54,17 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 		$this->_writer = new XMLWriter;
 		
 		$this->_writer->openMemory();
-       	$this->_writer->setIndent(TRUE);
-        $this->_writer->setIndentString(' ');
-        $this->_writer->startDocument('1.0', 'UTF-8');	
+		$this->_writer->setIndent(TRUE);
+		$this->_writer->setIndentString(' ');
+		$this->_writer->startDocument('1.0', 'UTF-8');
 		
-		if ( ! empty($data) && $key = array_shift(array_keys($data)))
+        $keys = array_keys($data);
+
+		if ( ! empty($data) AND $key = array_shift($keys))
 		{
 			$this->_writer->startElement($key);
 			
-			$this->_attributes( & $data[$key]);
+			$this->_attributes($data[$key]);
 
 			$data =& $data[$key];
 		}
@@ -85,7 +87,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 	 */
 	protected function _process($data)
     {
-		if (is_array($data) && ! empty($data)) 
+		if (is_array($data) AND ! empty($data)) 
 		{
 			foreach ($data as $index => $element)
 			{
@@ -95,8 +97,8 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 					{	
 						$this->_writer->startElement($index);
 						
-						$this->_attributes( & $element);
-						$this->_content( & $element);
+						$this->_attributes($element);
+						$this->_content($element);
 						
 						if ( ! empty($element))
 						{
@@ -126,7 +128,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 	 */
 	protected function _indexed($index, $element)
     {
-    	if (is_array($element) && isset($element[0]))
+    	if (is_array($element) AND isset($element[0]))
     	{
     		// If "pluralize" enabled, wrap children using plural index and set children to use 
     		// singular index
@@ -141,8 +143,8 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
     		{
     			$this->_writer->startElement($index);
     				
-				$this->_attributes( & $name);
-				$this->_content( & $name);
+				$this->_attributes($name);
+				$this->_content($name);
 				
 				if ( ! empty($name))
 				{
@@ -174,7 +176,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
     {
     	if (is_array($element))
     	{
-	    	if (is_array($element) && isset($element[$this->_config[':content']]))
+	    	if (is_array($element) AND isset($element[$this->_config[':content']]))
 			{
 				$this->_writer->text($element[$this->_config[':content']]);
 	
@@ -212,10 +214,10 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 	 */
     protected function _attributes($element) 
     {	
-	    if (is_array($element) && isset($element[$this->_config[':attributes']])) 
+	    if (is_array($element) AND isset($element[$this->_config[':attributes']])) 
 		{
 			foreach ($element[$this->_config[':attributes']] as $key => $value)
-			{				
+			{
 				$this->_writer->writeAttribute($key, $value);
 			}
 			
