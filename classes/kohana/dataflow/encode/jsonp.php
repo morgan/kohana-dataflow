@@ -30,7 +30,7 @@ class Kohana_Dataflow_Encode_Jsonp extends Dataflow_Encode
 	public function get_content_type()
 	{
 		return 'application/json-p';
-	}	
+	}
 	
 	/**
 	 * Encode
@@ -44,5 +44,5 @@ class Kohana_Dataflow_Encode_Jsonp extends Dataflow_Encode
 		$data = empty($data) ? '{}' : json_encode($data);
 
 		return $this->_config['callback'] . '(' . $data . ')';
-	}	
+	}
 }

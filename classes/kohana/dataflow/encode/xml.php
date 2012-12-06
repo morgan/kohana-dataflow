@@ -5,7 +5,7 @@
  * @package		Dataflow
  * @category	Base
  * @author		Micheal Morgan <micheal@morgan.ly>
- * @copyright	(c) 2011 Micheal Morgan
+ * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
 class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
@@ -60,22 +60,22 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 		
 		if ( ! empty($data) && $key = array_shift(array_keys($data)))
 		{
-      		$this->_writer->startElement($key);
-      		
-      		$this->_attributes( & $data[$key]);
+			$this->_writer->startElement($key);
+			
+			$this->_attributes( & $data[$key]);
 
 			$data =& $data[$key];
-		}		
+		}
 		
-        $this->_process($data);
-        
+		$this->_process($data);
+
 		$this->_writer->endElement();
-        $this->_writer->endDocument();
-        
-        return $this->_writer->outputMemory();
-	}	
+		$this->_writer->endDocument();
+
+		return $this->_writer->outputMemory();
+	}
 	
-    /**
+	/**
 	 * Process array
 	 * 
 	 * @access	protected
@@ -86,7 +86,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 	protected function _process($data)
     {
 		if (is_array($data) && ! empty($data)) 
-		{      		
+		{
 			foreach ($data as $index => $element)
 			{
 				if (is_array($element))
@@ -96,7 +96,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 						$this->_writer->startElement($index);
 						
 						$this->_attributes( & $element);
-						$this->_content( & $element);					
+						$this->_content( & $element);
 						
 						if ( ! empty($element))
 						{
@@ -108,15 +108,15 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 				}
 				else
 				{
-			        $this->_writer->startElement($index);
-			        $this->_writer->text($element);
-			        $this->_writer->endElement();
+					$this->_writer->startElement($index);
+					$this->_writer->text($element);
+					$this->_writer->endElement();
 				}
 			}
-    	}  	
-    }
-    
-    /**
+		}
+	}
+
+	/**
 	 * Handle nested
 	 * 
 	 * @access	protected
@@ -142,11 +142,11 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
     			$this->_writer->startElement($index);
     				
 				$this->_attributes( & $name);
-				$this->_content( & $name);					
+				$this->_content( & $name);
 				
 				if ( ! empty($name))
 				{
-					$this->_process($name);    			
+					$this->_process($name);
 				}
 				
     			$this->_writer->endElement();
@@ -155,7 +155,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
     	    if ($this->_config['pluralize'])
     		{
     			$this->_writer->endElement();
-    		}    		
+    		}
     		
     		return TRUE;
     	}
@@ -188,8 +188,8 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 				
 				unset($element[$this->_config[':xml']]);
 				
-				return TRUE;			
-			}			
+				return TRUE;
+			}
     	}
     	else if ( ! is_array($element))
     	{
@@ -197,10 +197,10 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 			
 			unset($element);
 			
-			return TRUE; 		
+			return TRUE;
     	}
 
-		return FALSE;    	
+		return FALSE;
     }  
     
     /**
@@ -222,7 +222,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 			unset($element[$this->_config[':attributes']]);
 			
 			return TRUE;
-		}    	
+		}
 
 		return FALSE;
     }
