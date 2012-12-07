@@ -9,7 +9,7 @@
  * @license		MIT
  */
 class Kohana_Dataflow_Encode_Jsonp extends Dataflow_Encode
-{	
+{
 	/**
 	 * Default config
 	 * 
@@ -27,10 +27,10 @@ class Kohana_Dataflow_Encode_Jsonp extends Dataflow_Encode
 	 * @access	public
 	 * @return	string
 	 */
-	public function get_content_type()
+	public function content_type()
 	{
 		return 'application/json-p';
-	}	
+	}
 	
 	/**
 	 * Encode
@@ -44,5 +44,5 @@ class Kohana_Dataflow_Encode_Jsonp extends Dataflow_Encode
 		$data = empty($data) ? '{}' : json_encode($data);
 
 		return $this->_config['callback'] . '(' . $data . ')';
-	}	
+	}
 }

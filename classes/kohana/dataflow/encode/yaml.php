@@ -5,29 +5,31 @@
  * @package		Dataflow
  * @category	Base
  * @author		Micheal Morgan <micheal@morgan.ly>
- * @copyright	(c) 2011 Micheal Morgan
+ * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
 class Kohana_Dataflow_Encode_Yaml extends Dataflow_Encode
-{	
+{
 	/**
-	 * Load vendor dependency
+	 * Initialize
 	 * 
-	 * @access	protected
+	 * @access	public
 	 * @return	void
 	 */
-	protected function _setup()
+	public function __construct(array $config)
 	{
+		parent::__construct($config);
+
 		require_once Kohana::find_file('vendor', 'yaml/lib/sfYaml');
 	}
-	
+
 	/**
 	 * Get content type
 	 * 
 	 * @access	public
 	 * @return	string
 	 */
-	public function get_content_type()
+	public function content_type()
 	{
 		return 'application/yaml';
 	}	
