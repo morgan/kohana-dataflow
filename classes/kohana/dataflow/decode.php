@@ -57,7 +57,7 @@ abstract class Kohana_Dataflow_Decode
 	 * @access	protected
 	 * @var		array
 	 */
-	protected $_config = array();	
+	protected $_config = array();
 	
 	/**
 	 * Initialize
@@ -70,8 +70,6 @@ abstract class Kohana_Dataflow_Decode
 		$this->_config = Arr::merge($this->_config, $config);
 		
 		$this->_type = $config['driver'];
-		
-		$this->_setup();
 	}
 	
 	/**
@@ -81,17 +79,6 @@ abstract class Kohana_Dataflow_Decode
 	 * @return	array
 	 */
 	abstract protected function _decode($data);
-	
-	/**
-	 * Helper for drivers
-	 * 
-	 * @access	protected
-	 * @return	void
-	 */
-	protected function _setup()
-	{
-		// intentionally left empty
-	}
 	
 	/**
 	 * Parsed input

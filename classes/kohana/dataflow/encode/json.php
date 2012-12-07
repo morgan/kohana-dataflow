@@ -9,14 +9,14 @@
  * @license		MIT
  */
 class Kohana_Dataflow_Encode_Json extends Dataflow_Encode
-{	
+{
 	/**
 	 * Get content type
 	 * 
 	 * @access	public
 	 * @return	string
 	 */
-	public function get_content_type()
+	public function content_type()
 	{
 		return 'application/json';
 	}

@@ -9,7 +9,7 @@
  * @license		MIT
  */
 class Kohana_Dataflow_Decode_Json extends Dataflow_Decode
-{	
+{
 	/**
 	 * Decode
 	 * 

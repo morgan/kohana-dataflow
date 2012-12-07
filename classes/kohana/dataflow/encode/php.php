@@ -16,7 +16,7 @@ class Kohana_Dataflow_Encode_Php extends Dataflow_Encode
 	 * @access	public
 	 * @return	string
 	 */
-	public function get_content_type()
+	public function content_type()
 	{
 		return 'application/php';
 	}

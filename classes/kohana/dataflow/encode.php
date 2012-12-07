@@ -9,7 +9,7 @@
  * @license		MIT
  */
 abstract class Kohana_Dataflow_Encode 
-{	
+{
 	/**
 	 * Default driver
 	 * 
@@ -70,8 +70,6 @@ abstract class Kohana_Dataflow_Encode
 		$this->_config = Arr::merge($this->_config, $config);
 		
 		$this->_type = $config['driver'];
-		
-		$this->_setup();
 	}
 	
 	/**
@@ -80,7 +78,7 @@ abstract class Kohana_Dataflow_Encode
 	 * @access	public
 	 * @return	string
 	 */
-	abstract public function get_content_type();	
+	abstract public function content_type();
 	
 	/**
 	 * Transform array to driver format. Return value.
@@ -90,17 +88,6 @@ abstract class Kohana_Dataflow_Encode
 	 * @return	string
 	 */
 	abstract protected function _encode(array $data);
-	
-	/**
-	 * Helper for drivers
-	 * 
-	 * @access	protected
-	 * @return	void
-	 */
-	protected function _setup()
-	{
-		// intentionally left empty
-	}	
 	
 	/**
 	 * Encode array to string

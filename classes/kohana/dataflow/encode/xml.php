@@ -23,7 +23,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 		':xml'			=> ':xml',
 		'pluralize'		=> FALSE
 	);
-
+	
 	/**
 	 * XML Writer
 	 * 
@@ -38,10 +38,10 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 	 * @access	public
 	 * @return	string
 	 */
-	public function get_content_type()
+	public function content_type()
 	{
 		return 'application/xml';
-	}	
+	}
 	
 	/**
 	 * Encode
@@ -58,7 +58,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 		$this->_writer->setIndentString(' ');
 		$this->_writer->startDocument('1.0', 'UTF-8');
 		
-        $keys = array_keys($data);
+		$keys = array_keys($data);
 
 		if ( ! empty($data) AND $key = array_shift($keys))
 		{
@@ -94,7 +94,7 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 				if (is_array($element))
 				{
 					if ( ! $this->_indexed($index, $element))
-					{	
+					{
 						$this->_writer->startElement($index);
 						
 						$this->_attributes($element);
@@ -127,22 +127,22 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 	 * @return	boolean
 	 */
 	protected function _indexed($index, $element)
-    {
-    	if (is_array($element) AND isset($element[0]))
-    	{
-    		// If "pluralize" enabled, wrap children using plural index and set children to use 
-    		// singular index
-    		if ($this->_config['pluralize'])
-    		{
-    			$this->_writer->startElement($index);
-    			
-    			$index = Inflector::singular($index);
-    		}
-    		
-    		foreach ($element as $key => $name)
-    		{
-    			$this->_writer->startElement($index);
-    				
+	{
+		if (is_array($element) AND isset($element[0]))
+		{
+			// If "pluralize" enabled, wrap children using plural index and set children to use 
+			// singular index
+			if ($this->_config['pluralize'])
+			{
+				$this->_writer->startElement($index);
+				
+				$index = Inflector::singular($index);
+			}
+			
+			foreach ($element as $key => $name)
+			{
+				$this->_writer->startElement($index);
+				
 				$this->_attributes($name);
 				$this->_content($name);
 				
@@ -151,40 +151,40 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 					$this->_process($name);
 				}
 				
-    			$this->_writer->endElement();
-    		}
-    		
-    	    if ($this->_config['pluralize'])
-    		{
-    			$this->_writer->endElement();
-    		}
-    		
-    		return TRUE;
-    	}
+				$this->_writer->endElement();
+			}
+			
+		    if ($this->_config['pluralize'])
+			{
+				$this->_writer->endElement();
+			}
+			
+			return TRUE;
+		}
 
-    	return FALSE;
-    }  
-    
-    /**
+		return FALSE;
+	}  
+
+	/**
 	 * Handle content
 	 * 
 	 * @access	protected
 	 * @param	mixed
 	 * @return	boolean
 	 */
-    protected function _content($element)
-    {
-    	if (is_array($element))
-    	{
-	    	if (is_array($element) AND isset($element[$this->_config[':content']]))
+	protected function _content($element)
+	{
+		if (is_array($element))
+		{
+			if (is_array($element) AND isset($element[$this->_config[':content']]))
 			{
 				$this->_writer->text($element[$this->_config[':content']]);
-	
+
 				unset($element[$this->_config[':content']]);
 				
 				return TRUE;
 			}
-	    	else if (is_array($element) && isset($element[$this->_config[':xml']])) 
+			else if (is_array($element) AND isset($element[$this->_config[':xml']])) 
 			{
 				$this->_writer->writeRaw($element[$this->_config[':xml']]);
 				
@@ -192,29 +192,29 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 				
 				return TRUE;
 			}
-    	}
-    	else if ( ! is_array($element))
-    	{
+		}
+		else if ( ! is_array($element))
+		{
 			$this->_writer->text($element);
 			
 			unset($element);
 			
 			return TRUE;
-    	}
+		}
 
 		return FALSE;
-    }  
-    
-    /**
+	}  
+
+	/**
 	 * Handle attributes
 	 * 
 	 * @access	protected
 	 * @param	array
 	 * @return	boolean
 	 */
-    protected function _attributes($element) 
-    {	
-	    if (is_array($element) AND isset($element[$this->_config[':attributes']])) 
+	protected function _attributes($element) 
+	{
+		if (is_array($element) AND isset($element[$this->_config[':attributes']])) 
 		{
 			foreach ($element[$this->_config[':attributes']] as $key => $value)
 			{
@@ -227,5 +227,5 @@ class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
 		}
 
 		return FALSE;
-    }
+	}
 }

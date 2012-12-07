@@ -9,17 +9,19 @@
  * @license		MIT
  */
 class Kohana_Dataflow_Decode_Yaml extends Dataflow_Decode
-{	
+{
 	/**
-	 * Load vendor dependency
+	 * Initialize
 	 * 
-	 * @access	protected
+	 * @access	public
 	 * @return	void
 	 */
-	protected function _setup()
+	public function __construct(array $config)
 	{
+		parent::__construct($config);
+
 		require_once Kohana::find_file('vendor', 'yaml/lib/sfYaml');
-	}	
+	}
 	
 	/**
 	 * Decode
