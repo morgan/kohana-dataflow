@@ -12,7 +12,7 @@ usage or incorporating into a REST API.
 ## Getting Started
 
 Recommend starting out with Dataflow documentation using the User Guide module or available 
-online at http://dev.morgan.ly/kohana/v3.2/guide/dataflow/.
+online at http://dev.morgan.ly/kohana/v3.3/guide/dataflow/.
 
 ## Learning & References
 
@@ -20,6 +20,6 @@ online at http://dev.morgan.ly/kohana/v3.2/guide/dataflow/.
 - API Browser
 - Unit Tests
 
-## Version 0.3.0
+## Version 0.4.0
 
-This is release version 0.3.0 of [Dataflow](https://github.com/michealmorgan/kohana-dataflow).
+This is release version 0.4.0 of [Dataflow](https://github.com/morgan/kohana-dataflow).

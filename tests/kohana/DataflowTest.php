@@ -2,6 +2,8 @@
 /**
  * Tests Dataflow
  * 
+ * @note		Tests directory `dataflow`, when renamed to `Dataflow`, creates a segfault 
+ * 				on Debian 6.0.5 (Squeeze) upon running PHPUnit.
  * @group		dataflow
  * @package		Dataflow
  * @category	Tests
@@ -66,13 +68,28 @@ abstract class Kohana_DataflowTest extends Unittest_TestCase
 				// test attribute handling
 				array
 				(
-					'key1' => array
+					'parent' => array
 					(
-						'_attributes'	=> array('a_key1' => 'a_key2'),
-							'key2'			=> array
+						':attributes'	=> array('key1' => 'value1'),
+						'child'			=> array
 						(
-							'value2_1',
-							'value_2_3'
+							'value1',
+							'value2'
+						)
+					)
+				)
+			),
+			array
+			(
+				// Test nesting with attributes
+				'parent' => array
+				(
+					'child' => array
+					(
+						':attributes'	=> array('key1' => 'value1', 'key2' => 'value2'),
+						'child_child'	=> array
+						(
+							'key1' => 'value2'
 						)
 					)
 				)

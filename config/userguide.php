@@ -8,7 +8,7 @@ return array
 			'enabled'		=> TRUE,
 			'name'			=> 'Dataflow',
 			'description'	=> 'Translate data from one encoded format to another.',
-			'copyright'		=> '&copy; 2011 Micheal Morgan',
+			'copyright'		=> '&copy; 2011-2012 Micheal Morgan',
 		)
 	)
 );

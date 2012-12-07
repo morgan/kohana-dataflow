@@ -1,3 +1,14 @@
+# 0.4.0 - 12/06/2012
+
+- Renamed `Encode::get_content_type` to `Encode::content_type`
+- Removed `Encode::_setup` and `Decode::_setup` due to limited usage, using constructor instead
+- Resolved issue with decoding XML attributes
+- Upgraded to support Kohana 3.3
+- Renamed class files and directories to support PSR-0
+- Resolved pass by reference issue (now testing in strict mode)
+- Expanded user guide documentation and unit test coverage
+- All tests pass "OK (25 tests, 25 assertions)"
+
 # 0.3.0 - 04/09/2012
 
 - Added JSON-P encode and decode support.

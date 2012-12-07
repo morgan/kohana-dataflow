@@ -68,9 +68,7 @@ class Kohana_Dataflow_Decode_Xml extends Dataflow_Decode
 		{
 			$key = 1;
 			
-			$content = $this->_decoded[$index];
-
-			$this->_decoded[$index] = array(0 => $content);
+			$this->_decoded[$index] = array($this->_decoded[$index]);
 		} 
 		else if (isset($this->_decoded[$index]))
 		{
@@ -86,6 +84,11 @@ class Kohana_Dataflow_Decode_Xml extends Dataflow_Decode
 			);
 			
 			$this->_decoded =& $this->_decoded[$index][$key];
+
+			if ( ! empty($attributes))
+			{
+				$this->_decoded[$this->_config[':attributes']] = $attributes;
+			}
 		} 
 		else 
 		{
@@ -95,11 +98,6 @@ class Kohana_Dataflow_Decode_Xml extends Dataflow_Decode
 			);
 			
 			$this->_decoded =& $this->_decoded[$index];
-		}
-
-		if ( ! empty($attributes))
-		{
-			$this->_decoded[$this->_config[':attributes']] = $attributes;
 		}
 	}
 	
