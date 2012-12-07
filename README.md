@@ -3,11 +3,31 @@
 Simple way of translating to or from XML, YAML, JSON, JSON-P and serialized PHP. Great for general 
 usage or incorporating into a REST API.
 
-	// Example of converting XML to YAML
-	echo Dataflow::factory()->set($xml);
+	// Set drivers (each key is config that passes through to its respective library, 
+	// `decode` to `Dataflow_Decode` and `encode` to `Dataflow_Encode`)
+	$config = array
+	(
+		'decode' => array('driver' => 'yaml'),
+		'encode' => array('driver' => 'xml')
+	);
+
+	// Example of converting XML to YAML and outputting results
+	echo Dataflow::factory($config)->set($xml);
 	
 	// Convert any supported format to a standardized array
-	Dataflow::factory()->set($input)->as_array();
+	Dataflow::factory()
+		->set($input)
+		->as_array();
+
+	// Decode XML to an associative array
+	$array = Dataflow_Decode::factory(array('driver' => 'xml'))
+		->set($xml)
+		->get();
+
+	// Encode associative array to XML
+	$xml = Dataflow_Encode::factory(array('driver' => 'xml'))
+		->set($array)
+		->get();
 
 ## Getting Started
 
