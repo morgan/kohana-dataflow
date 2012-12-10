@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') OR die('Kohana bootstrap needs to be included before tests run');
 /**
- * Tests Dataflow JSONP driver
+ * Tests Dataflow PHP driver
  *
  * @group		dataflow
  * @package		Dataflow
@@ -9,7 +9,7 @@
  * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
-class Kohana_Dataflow_JsonpTest extends Kohana_DataflowTest
+class Kohana_Dataflow_PHPTest extends Kohana_DataflowTest
 {
 	/**
 	 * Factory pattern
@@ -19,6 +19,6 @@ class Kohana_Dataflow_JsonpTest extends Kohana_DataflowTest
 	 */
 	public function factory()
 	{
-		return Dataflow::factory(array('encode' => array('driver' => 'jsonp'), 'decode' => array('driver' => 'jsonp')));
+		return Dataflow::factory(array('encode' => array('driver' => 'PHP'), 'decode' => array('driver' => 'PHP')));
 	}
 }

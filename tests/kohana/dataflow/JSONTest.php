@@ -9,7 +9,7 @@
  * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
-class Kohana_Dataflow_JsonTest extends Kohana_DataflowTest
+class Kohana_Dataflow_JSONTest extends Kohana_DataflowTest
 {
 	/**
 	 * Factory pattern
@@ -19,6 +19,6 @@ class Kohana_Dataflow_JsonTest extends Kohana_DataflowTest
 	 */
 	public function factory()
 	{
-		return Dataflow::factory(array('encode' => array('driver' => 'json'), 'decode' => array('driver' => 'json')));
+		return Dataflow::factory(array('encode' => array('driver' => 'JSON'), 'decode' => array('driver' => 'JSON')));
 	}
 }
