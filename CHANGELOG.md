@@ -1,3 +1,9 @@
+# 0.4.1 - 12/10/2012
+
+- Resolved class case (correctly renamed class files and directories)
+- Updated documentation to reflect new driver case
+- All tests pass: "OK (25 tests, 25 assertions)"
+
 # 0.4.0 - 12/06/2012
 
 - Renamed `Encode::get_content_type` to `Encode::content_type`
@@ -7,7 +13,7 @@
 - Renamed class files and directories to support PSR-0
 - Resolved pass by reference issue (now testing in strict mode)
 - Expanded user guide documentation and unit test coverage
-- All tests pass "OK (25 tests, 25 assertions)"
+- All tests pass: "OK (25 tests, 25 assertions)"
 
 # 0.3.0 - 04/09/2012
 
@@ -16,7 +22,7 @@
 while children dynamically use singular keys. Example `array('values' => array('a', 'b'))` to 
 `<values><value>a</value><value>b</value></values>`. This keeps other serialized formats free of 
 the singular keys when using more than one driver for output.
-- All tests pass "OK (20 tests, 20 assertions)"
+- All tests pass: "OK (20 tests, 20 assertions)"
 
 # 0.2.0 - 10/19/2011
 
