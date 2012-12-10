@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * Dataflow Encode JSON Driver
+ * Dataflow Encode PHP Driver
  * 
  * @package		Dataflow
  * @category	Base
@@ -8,7 +8,7 @@
  * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
-class Kohana_Dataflow_Encode_Json extends Dataflow_Encode
+class Kohana_Dataflow_Encode_PHP extends Dataflow_Encode
 {
 	/**
 	 * Get content type
@@ -18,7 +18,7 @@ class Kohana_Dataflow_Encode_Json extends Dataflow_Encode
 	 */
 	public function content_type()
 	{
-		return 'application/json';
+		return 'application/php';
 	}
 	
 	/**
@@ -29,10 +29,6 @@ class Kohana_Dataflow_Encode_Json extends Dataflow_Encode
 	 */
 	protected function _encode(array $data)
 	{
-		// Force return of object if array empty
-		if (empty($data))
-			return '{}';
-		else
-			return json_encode($data);
+		return serialize($data);
 	}
 }

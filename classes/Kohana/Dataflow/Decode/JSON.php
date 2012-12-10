@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * Dataflow Decode JSON Driver
+ * Dataflow Decode JSON
  * 
  * @package		Dataflow
  * @category	Base
@@ -8,7 +8,7 @@
  * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
-class Kohana_Dataflow_Decode_Json extends Dataflow_Decode
+class Kohana_Dataflow_Decode_JSON extends Dataflow_Decode
 {
 	/**
 	 * Decode

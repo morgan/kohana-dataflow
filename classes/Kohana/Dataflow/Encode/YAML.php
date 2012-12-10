@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * Dataflow Encode PHP Driver
+ * Dataflow Encode YAML Driver
  * 
  * @package		Dataflow
  * @category	Base
@@ -8,8 +8,21 @@
  * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
-class Kohana_Dataflow_Encode_Php extends Dataflow_Encode
+class Kohana_Dataflow_Encode_YAML extends Dataflow_Encode
 {
+	/**
+	 * Initialize
+	 * 
+	 * @access	public
+	 * @return	void
+	 */
+	public function __construct(array $config)
+	{
+		parent::__construct($config);
+
+		require_once Kohana::find_file('vendor', 'yaml/lib/sfYaml');
+	}
+
 	/**
 	 * Get content type
 	 * 
@@ -18,8 +31,8 @@ class Kohana_Dataflow_Encode_Php extends Dataflow_Encode
 	 */
 	public function content_type()
 	{
-		return 'application/php';
-	}
+		return 'application/yaml';
+	}	
 	
 	/**
 	 * Encode
@@ -29,6 +42,6 @@ class Kohana_Dataflow_Encode_Php extends Dataflow_Encode
 	 */
 	protected function _encode(array $data)
 	{
-		return serialize($data);
+		return sfYaml::dump($data);	
 	}
 }

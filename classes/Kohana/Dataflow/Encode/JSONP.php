@@ -8,7 +8,7 @@
  * @copyright	(c) 2012 Micheal Morgan
  * @license		MIT
  */
-class Kohana_Dataflow_Encode_Jsonp extends Dataflow_Encode
+class Kohana_Dataflow_Encode_JSONP extends Dataflow_Encode
 {
 	/**
 	 * Default config

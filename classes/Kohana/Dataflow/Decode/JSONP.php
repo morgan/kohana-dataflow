@@ -8,7 +8,7 @@
  * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
-class Kohana_Dataflow_Decode_Jsonp extends Dataflow_Decode
+class Kohana_Dataflow_Decode_JSONP extends Dataflow_Decode
 {
 	/**
 	 * Decode

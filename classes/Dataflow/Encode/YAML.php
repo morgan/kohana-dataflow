@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * Dataflow Encode PHP Library
+ * Dataflow Encode YAML
  * 
  * @package		Dataflow
  * @category	Base
@@ -8,4 +8,4 @@
  * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
-class Dataflow_Encode_Php extends Kohana_Dataflow_Encode_Php {}
+class Dataflow_Encode_YAML extends Kohana_Dataflow_Encode_YAML {}

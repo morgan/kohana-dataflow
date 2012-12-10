@@ -8,7 +8,7 @@
  * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
-class Kohana_Dataflow_Encode_Xml extends Dataflow_Encode
+class Kohana_Dataflow_Encode_XML extends Dataflow_Encode
 {
 	/**
 	 * Default config
