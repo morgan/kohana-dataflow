@@ -17,8 +17,8 @@
 
 	$config = array
 	(
-		'decode' => array('driver' => 'yaml'),
-		'encode' => array('driver' => 'xml')
+		'decode' => array('driver' => 'YAML'),
+		'encode' => array('driver' => 'XML')
 	);
 
 	$dataflow = Dataflow::factory($config);
