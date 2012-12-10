@@ -7,8 +7,8 @@ usage or incorporating into a REST API.
 	// `decode` to `Dataflow_Decode` and `encode` to `Dataflow_Encode`)
 	$config = array
 	(
-		'decode' => array('driver' => 'yaml'),
-		'encode' => array('driver' => 'xml')
+		'decode' => array('driver' => 'YAML'),
+		'encode' => array('driver' => 'XML')
 	);
 
 	// Example of converting XML to YAML and outputting results
@@ -20,12 +20,12 @@ usage or incorporating into a REST API.
 		->as_array();
 
 	// Decode XML to an associative array
-	$array = Dataflow_Decode::factory(array('driver' => 'xml'))
+	$array = Dataflow_Decode::factory(array('driver' => 'XML'))
 		->set($xml)
 		->get();
 
 	// Encode associative array to XML
-	$xml = Dataflow_Encode::factory(array('driver' => 'xml'))
+	$xml = Dataflow_Encode::factory(array('driver' => 'XML'))
 		->set($array)
 		->get();
 
@@ -40,6 +40,6 @@ online at http://dev.morgan.ly/kohana/v3.3/guide/dataflow/.
 - API Browser
 - Unit Tests
 
-## Version 0.4.0
+## Version 0.4.1
 
-This is release version 0.4.0 of [Dataflow](https://github.com/morgan/kohana-dataflow).
+This is release version 0.4.1 of [Dataflow](https://github.com/morgan/kohana-dataflow).
