@@ -17,7 +17,7 @@ abstract class Kohana_Dataflow_Encode
 	 * @access	public
 	 * @var		string
 	 */
-	public static $default = 'json';
+	public static $default = 'JSON';
 	
 	/**
 	 * Factory pattern
@@ -28,9 +28,9 @@ abstract class Kohana_Dataflow_Encode
 	 */
 	public static function factory(array $config = array())
 	{
-		$config['driver'] = (isset($config['driver'])) ? strtolower($config['driver']) : Dataflow_Encode::$default;
+		$config['driver'] = (isset($config['driver'])) ? $config['driver'] : Dataflow_Encode::$default;
 		
-		$class = 'Dataflow_Encode_' . ucfirst($config['driver']);
+		$class = 'Dataflow_Encode_' . $config['driver'];
 		
 		return new $class($config);
 	}
@@ -98,8 +98,8 @@ abstract class Kohana_Dataflow_Encode
 	public function set(array $data)
 	{
 		if ( ! is_string($this->_encoded = $this->_encode($data)))
-			throw new Kohana_Exception('Expecting Dataflow_Encode_' . ucfirst($this->type()) . '::_encode to return a string.');
-			
+			throw new Kohana_Exception('Expecting `Dataflow_Encode_' . $this->type() . '::_encode` to return a string.');
+		
 		return $this;
 	}	
 	

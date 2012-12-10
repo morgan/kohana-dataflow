@@ -17,7 +17,7 @@ abstract class Kohana_Dataflow_Decode
 	 * @access	public
 	 * @var		string
 	 */
-	public static $default = 'json';
+	public static $default = 'JSON';
 	
 	/**
 	 * Factory pattern
@@ -28,9 +28,9 @@ abstract class Kohana_Dataflow_Decode
 	 */
 	public static function factory(array $config = array())
 	{
-		$config['driver'] = (isset($config['driver'])) ? strtolower($config['driver']) : Dataflow_Decode::$default;
+		$config['driver'] = (isset($config['driver'])) ? $config['driver'] : Dataflow_Decode::$default;
 		
-		$class = 'Dataflow_Decode_' . ucfirst($config['driver']);
+		$class = 'Dataflow_Decode_' . $config['driver'];
 		
 		return new $class($config);
 	}
@@ -90,7 +90,7 @@ abstract class Kohana_Dataflow_Decode
 	public function set($data)
 	{
 		if ( ! is_array($this->_decoded = $this->_decode($data)))
-			throw new Kohana_Exception('Expecting Dataflow_Decode_' . ucfirst($this->type()) . '::_decode to return an array.');
+			throw new Kohana_Exception('Expecting `Dataflow_Decode_' . $this->type() . '::_decode` to return an array.');
 		
 		return $this;
 	}	
