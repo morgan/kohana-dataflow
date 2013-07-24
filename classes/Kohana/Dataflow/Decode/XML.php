@@ -84,11 +84,6 @@ class Kohana_Dataflow_Decode_XML extends Dataflow_Decode
 			);
 			
 			$this->_decoded =& $this->_decoded[$index][$key];
-
-			if ( ! empty($attributes))
-			{
-				$this->_decoded[$this->_config[':attributes']] = $attributes;
-			}
 		} 
 		else 
 		{
@@ -98,11 +93,11 @@ class Kohana_Dataflow_Decode_XML extends Dataflow_Decode
 			);
 			
 			$this->_decoded =& $this->_decoded[$index];
+		}
 
-			if ( ! empty($attributes))
-			{
-				$this->_decoded[$this->_config[':attributes']] = $attributes;
-			}
+		if ( ! empty($attributes))
+		{
+			$this->_decoded[$this->_config[':attributes']] = $attributes;
 		}
 	}
 	
