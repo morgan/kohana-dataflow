@@ -2,6 +2,7 @@
 
 - Resolved separate issues with encoding and decoding of XML attributes
 - Added unit tests to test against newly resolved issues
+- Added documentation on how to encode and decode XML attributes
 - Updated copyright years
 - All tests pass: "OK (27 tests, 27 assertions)"
 
