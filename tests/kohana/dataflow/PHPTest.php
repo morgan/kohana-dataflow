@@ -6,7 +6,7 @@
  * @package		Dataflow
  * @category	Tests
  * @author		Micheal Morgan <micheal@morgan.ly>
- * @copyright	(c) 2011-2012 Micheal Morgan
+ * @copyright	(c) 2011-2013 Micheal Morgan
  * @license		MIT
  */
 class Kohana_Dataflow_PHPTest extends Kohana_DataflowTest
