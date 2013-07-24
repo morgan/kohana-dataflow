@@ -1,3 +1,10 @@
+# 0.5.0 - 07/23/2013
+
+- Resolved separate issues with encoding and decoding of XML attributes
+- Added unit tests to test against newly resolved issues
+- Updated copyright years
+- All tests pass: "OK (27 tests, 27 assertions)"
+
 # 0.4.1 - 12/10/2012
 
 - Resolved class case (correctly renamed class files and directories)

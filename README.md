@@ -40,6 +40,6 @@ online at http://dev.morgan.ly/kohana/v3.3/guide/dataflow/.
 - API Browser
 - Unit Tests
 
-## Version 0.4.1
+## Version 0.5.0
 
-This is release version 0.4.1 of [Dataflow](https://github.com/morgan/kohana-dataflow).
+This is release version 0.5.0 of [Dataflow](https://github.com/morgan/kohana-dataflow).
