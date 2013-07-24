@@ -5,7 +5,7 @@
  * @package		Dataflow
  * @category	Base
  * @author		Micheal Morgan <micheal@morgan.ly>
- * @copyright	(c) 2011-2012 Micheal Morgan
+ * @copyright	(c) 2011-2013 Micheal Morgan
  * @license		MIT
  */
 class Kohana_Dataflow_Encode_XML extends Dataflow_Encode
@@ -212,7 +212,7 @@ class Kohana_Dataflow_Encode_XML extends Dataflow_Encode
 	 * @param	array
 	 * @return	boolean
 	 */
-	protected function _attributes($element) 
+	protected function _attributes( & $element) 
 	{
 		if (is_array($element) AND isset($element[$this->_config[':attributes']])) 
 		{
