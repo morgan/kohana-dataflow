@@ -1,4 +1,4 @@
-**Notice**: The Kohana framework was officially retired on 07/01/2017. Therefore, this repository is no longer maintained.
+:warning: **Notice**: The Kohana Framework announced official retirement on 07/01/2017. Therefore, this repository is no longer maintained.
 
 ----
 
