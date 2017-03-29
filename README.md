@@ -1,3 +1,7 @@
+**Notice**: The Kohana framework was officially retired on 07/01/2017. Therefore, this repository is no longer maintained.
+
+----
+
 # Dataflow Module
 
 Simple way of translating to or from XML, YAML, JSON, JSON-P and serialized PHP. Great for general 
@@ -31,8 +35,7 @@ usage or incorporating into a REST API.
 
 ## Getting Started
 
-Recommend starting out with Dataflow documentation using the User Guide module or available 
-online at http://dev.morgan.ly/kohana/v3.3/guide/dataflow/.
+Recommend starting out with Dataflow documentation using the User Guide module.
 
 ## Learning & References
 
